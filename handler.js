@@ -22,20 +22,20 @@ module.exports.dispatch = (event, context, callback) => {
 		body: JSON.stringify('hi'),
 		isBase64Encoded: false
 	};
-	// axios
-	// 	.post('toRiderclient', { query: query })
-	// 	.then(res => {
-	// 		const response = {
-	// 			statusCode: 200,
-	// 			body: JSON.stringify({
-	// 				query: query
-	// 			})
-	// 		};
-	// 		callback(null, response);
-	// 	})
-	// 	.catch(err => {
-	// 		callback(err);
-	// 	});
+	axios
+		.post(process.env.RIDER_CLIENT, { query: query })
+		.then(res => {
+			const response = {
+				statusCode: 200,
+				body: JSON.stringify({
+					query: query
+				})
+			};
+			callback(null, response);
+		})
+		.catch(err => {
+			callback(err);
+		});
 	axios
 		.get(`${process.env.DB_ROUTE}dispatch`, {
 			data: {
