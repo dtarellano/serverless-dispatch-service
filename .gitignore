@@ -6,3 +6,4 @@ jspm_packages
 .serverless
 
 serverless.env.yml
+.DS_Store
